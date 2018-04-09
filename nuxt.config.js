@@ -13,6 +13,13 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  plugins: [{
+    src: '~plugins/ElementUI',
+    ssr: true,
+  }],
+  css: [
+    'element-ui/lib/theme-chalk/index.css'
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -33,6 +40,7 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor:['element-ui']
   }
 }

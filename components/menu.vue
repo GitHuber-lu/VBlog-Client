@@ -43,3 +43,27 @@ export default {
   }
 };
 </script>
+<style>
+.el-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdfe6;
+  color: #333;
+  text-align: center;
+}
+.el-header {
+  padding: 0;
+}
+
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  height: calc(100vh - 120px);
+}
+@media screen and (min-width: 768px) {
+  .el-footer {
+    display: list-item;
+  }
+}
+</style>

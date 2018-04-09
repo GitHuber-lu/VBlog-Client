@@ -1,11 +1,7 @@
 <template>
-  <el-container>
-    <el-header width="100%">
-      <nuxt/>
-    </el-header>
-    <el-main>Main</el-main>
-    <el-footer>Footer</el-footer>
-  </el-container>
+  <div>
+    <nuxt/>
+  </div>
 </template>
 
 <style>
@@ -23,26 +19,5 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-}
-.el-header{
-  padding: 0;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  height: calc(100vh - 120px);
-}
-
-body > .el-container {
-  margin-bottom: 40px;
 }
 </style>

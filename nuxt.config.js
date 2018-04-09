@@ -13,12 +13,13 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  plugins: [{
-    src: '~plugins/ElementUI',
-    ssr: true,
-  }],
+  plugins: [
+    {src: '~plugins/ElementUI', ssr: true},
+    {src: '~plugins/Request', ssr: true}
+  ],
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'static/css/common.css'
   ],
   /*
   ** Customize the progress bar color
@@ -41,6 +42,6 @@ module.exports = {
         })
       }
     },
-    vendor:['element-ui']
+    vendor:['element-ui', 'axios']
   }
 }

@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     {src: '~plugins/main', ssr: true},
-    {src: '~plugins/ElementUI', ssr: true},
+    {src: '~plugins/element-ui', ssr: true},
     {src: '~plugins/http', ssr: true}
   ],
   css: [

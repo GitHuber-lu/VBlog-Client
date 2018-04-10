@@ -21,21 +21,31 @@ import vblogMenu from "~/components/menu.vue";
 import vblogFooter from "~/components/footer.vue";
 
 export default {
-  data(){
+  data() {
     return {
-      username:'',
-      password:''
-    }
+      username: "",
+      password: ""
+    };
   },
   components: {
     vblogMenu,
     vblogFooter
   },
-  methods:{
-    login(){
-      this.$fetch('/login', {username:this.username,password:this.password}).then(function(data){
-        console.log(data)
-      })
+  methods: {
+    login() {
+      this.$fetch("/login", {
+        username: this.username,
+        password: this.password
+      }).then(function(res) {
+        if (res.code == 200) {
+          location.href = "/manage";
+          return;
+        }
+        this.$notify.error({
+          title: "错误",
+          message: "用户名或密码错误"
+        });
+      });
     }
   }
 };

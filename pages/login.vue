@@ -4,11 +4,11 @@
       <vblog-menu></vblog-menu>
     </el-header>
     <el-main>
-        <form class="login">
+        <div class="login">
             <el-input class="mb-2" v-model="username" placeholder="username"></el-input>
             <el-input class="mb-2" v-model="password" placeholder="password" type="password"></el-input>
             <el-button type="primary" @click="login">登录</el-button>
-        </form>
+        </div>
     </el-main>
     <el-footer>
       <vblog-footer></vblog-footer>
@@ -33,7 +33,7 @@ export default {
   },
   methods:{
     login(){
-      fetch('http://localhost:1000/login', {username:this.username,password:this.password}).then(function(data){
+      this.$fetch('/login', {username:this.username,password:this.password}).then(function(data){
         console.log(data)
       })
     }

@@ -14,8 +14,9 @@ module.exports = {
     ]
   },
   plugins: [
+    {src: '~plugins/main', ssr: true},
     {src: '~plugins/ElementUI', ssr: true},
-    {src: '~plugins/Request', ssr: true}
+    {src: '~plugins/http', ssr: true}
   ],
   css: [
     'element-ui/lib/theme-chalk/index.css',

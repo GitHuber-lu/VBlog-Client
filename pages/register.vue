@@ -4,10 +4,10 @@
       <vblog-menu></vblog-menu>
     </el-header>
     <el-main>
-        <div class="login">
+        <div class="register">
             <el-input class="mb-2" v-model="username" placeholder="username"></el-input>
             <el-input class="mb-2" v-model="password" placeholder="password" type="password"></el-input>
-            <el-button type="primary" @click="login">登录</el-button>
+            <el-button type="primary" @click="register">注册</el-button>
         </div>
     </el-main>
     <el-footer>
@@ -33,20 +33,21 @@ export default {
     vblogFooter
   },
   methods: {
-    login() {
-      this.$fetch("/login", {
+    register() {
+      this.$fetch("/register", {
         username: this.username,
         password: md5(this.password)
       }).then(res => {
         if (res.code == 200) {
-          this.$router.push("/manage");
-          return;
+          
         }
-        this.$notify.error({
-          title: "提示",
-          message: "用户名或密码错误",
-          duration: 2000
-        });
+        if (res.code == 601) {
+          this.$notify.error({
+            title: "提示",
+            message: "用户名已存在",
+            duration: 2000
+          });
+        }
       });
     }
   }

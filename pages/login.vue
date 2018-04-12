@@ -19,6 +19,7 @@
 <script>
 import vblogMenu from '~/components/menu.vue'
 import vblogFooter from '~/components/footer.vue'
+import Cookie from 'js-cookie'
 import md5 from 'md5'
 
 export default {
@@ -39,6 +40,8 @@ export default {
         password: md5(this.password)
       }).then(res => {
         if (res.code == 200) {
+          const token = res.data.token
+          Cookie.set('TOKEN',token)
           this.$router.push('/manage')
           return
         }

@@ -2,10 +2,10 @@ import axios from 'axios';
 import Cookie from 'js-cookie'
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://localhost:1000';
+axios.defaults.baseURL = 'http://localhost:1000/api';
 
 // axios.create({
-//   baseURL: 'http://localhost:1000',
+//   baseURL: 'http://localhost:1000/api',
 //   timeout: 5000
 // });
 

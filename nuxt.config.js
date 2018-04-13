@@ -14,13 +14,18 @@ module.exports = {
     ]
   },
   plugins: [
-    {src: '~plugins/main', ssr: true},
-    {src: '~plugins/element-ui', ssr: true},
-    {src: '~plugins/http', ssr: true}
+    { src: '~plugins/main', ssr: true },
+    { src: '~plugins/element-ui', ssr: true },
+    { src: '~plugins/http', ssr: true }
   ],
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    'assets/css/common.css'
+    'assets/css/common.css',
+    // ueditor
+    'static/UE/themes/iframe.css',
+    'static/UE/themes/default/css/ueditor.min.css',
+    'static/UE/themes/default/dialogbase.css',
+    'static/UE/third-party/codemirror/codemirror.css'
   ],
   /*
   ** Customize the progress bar color
@@ -33,7 +38,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -43,6 +48,6 @@ module.exports = {
         })
       }
     },
-    vendor:['element-ui', 'axios']
+    vendor: ['element-ui', 'axios']
   }
 }

@@ -1,34 +1,52 @@
 <template>
-  <div>
-    <el-input class="mb-2" placeholder="请输入内容">
-      <template slot="prepend">标题</template>
-    </el-input>
-    <vblog-ueditor :defaultMsg="defaultMsg" :config="config" ref="ue"></vblog-ueditor>
-  </div>
+  <el-row class="p20">
+    <el-col :span="16" class="mb-2 pr-2">
+      <div class="grid-content">
+        <el-input class="mb-2" placeholder="请输入内容">
+          <template slot="prepend">标题</template>
+        </el-input>
+        <ueditor :defaultMsg="defaultMsg" :config="config" ref="ue"></ueditor>
+      </div>
+    </el-col>
+    <el-col :span="8">
+      <div class="grid-content">
+        <el-dropdown split-button type="primary">
+          添加分类
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item>双皮奶</el-dropdown-item>
+            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 <script>
-import vblogUeditor from "../../components/ue.vue";
+import ueditor from '../../components/ueditor.vue'
 export default {
-  components: { vblogUeditor },
+  components: { ueditor },
   data() {
     return {
-      defaultMsg: "这里是UE测试",
+      defaultMsg: '',
       config: {
         initialFrameWidth: null,
         initialFrameHeight: 350
       }
-    };
+    }
   },
   methods: {
     getUEContent() {
-      let content = this.$refs.ue.getUEContent();
+      let content = this.$refs.ue.getUEContent()
       this.$notify({
-        title: "获取成功，可在控制台查看！",
+        title: '获取成功，可在控制台查看！',
         message: content,
-        type: "success"
-      });
-      console.log(content);
+        type: 'success'
+      })
+      console.log(content)
     }
   }
-};
+}
 </script>

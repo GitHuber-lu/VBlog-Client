@@ -2,10 +2,11 @@
   <el-row class="p20">
     <el-col :span="16" class="mb-2 pr-2">
       <div class="grid-content">
-        <el-input class="mb-2" placeholder="请输入内容">
+        <el-input class="mb-2" placeholder="请输入内容" v-model="title">
           <template slot="prepend">标题</template>
         </el-input>
-        <ueditor :defaultMsg="defaultMsg" :config="config" ref="ue"></ueditor>
+        <ueditor :defaultMsg="defaultMsg" :config="config" ref="ue" class="mb-2"></ueditor>
+        <el-button type="primary" @click="publishArticle">发布</el-button>
       </div>
     </el-col>
     <el-col :span="8">
@@ -25,28 +26,31 @@
   </el-row>
 </template>
 <script>
-import ueditor from '../../components/ueditor.vue'
+import ueditor from "../../components/ueditor.vue";
 export default {
   components: { ueditor },
   data() {
     return {
-      defaultMsg: '',
+      defaultMsg: "",
       config: {
         initialFrameWidth: null,
         initialFrameHeight: 350
-      }
-    }
+      },
+      title: ""
+    };
   },
   methods: {
+    publishArticle() {
+      this.$put("/publishArticle", {
+        title: this.title,
+        content: this.getUEContent()
+      }).then(res => {
+
+      });
+    },
     getUEContent() {
-      let content = this.$refs.ue.getUEContent()
-      this.$notify({
-        title: '获取成功，可在控制台查看！',
-        message: content,
-        type: 'success'
-      })
-      console.log(content)
+      return this.$refs.ue.getUEContent();
     }
   }
-}
+};
 </script>

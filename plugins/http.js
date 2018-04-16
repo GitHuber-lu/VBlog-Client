@@ -1,8 +1,9 @@
 import axios from 'axios';
-import Cookie from 'js-cookie'
+import Cookie from 'js-cookie';
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = 'http://localhost:1000/api';
+
 
 // axios.create({
 //   baseURL: 'http://localhost:1000/api',
@@ -15,7 +16,8 @@ axios.interceptors.request.use(
     const token = Cookie.get('TOKEN');
     config.data = JSON.stringify(config.data);
     config.headers = {
-      'Token': token
+      'Token': token,
+      'Content-Type': 'application/x-www-form-urlencoded'
     }
     // if(token){
     //   config.params = {'token':token}

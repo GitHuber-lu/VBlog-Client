@@ -55,7 +55,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$fetch('/register', {
+          this.$put('/register', {
             username: this.ruleForm.username,
             password: md5(this.ruleForm.password)
           }).then(res => {

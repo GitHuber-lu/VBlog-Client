@@ -5,11 +5,11 @@
 </template>
 <script>
 export default {
-  name: 'UE',
+  name: "UE",
   data() {
     return {
       editor: null
-    }
+    };
   },
   props: {
     defaultMsg: {
@@ -20,19 +20,18 @@ export default {
     }
   },
   mounted() {
-    const _this = this
-    this.editor = UE.getEditor('editor', this.config)
-    this.editor.addListener('ready', function() {
-      _this.editor.setContent(_this.defaultMsg)
-    })
+    this.editor = UE.getEditor("editor", this.config);
+    this.editor.addListener("ready", () => {
+      this.editor.setContent(this.defaultMsg);
+    });
   },
   methods: {
     getUEContent() {
-      return this.editor.getContent()
+      return this.editor.getContent();
     }
   },
   destroyed() {
-    this.editor.destroy()
+    this.editor.destroy();
   }
-}
+};
 </script>

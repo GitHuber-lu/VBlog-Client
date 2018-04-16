@@ -59,14 +59,14 @@ export default {
             username: this.ruleForm.username,
             password: md5(this.ruleForm.password)
           }).then(res => {
-            if (res.code == 200) {
+            if (res.code == 'success') {
               this.$notify.info({
                 title: '提示',
                 message: '注册成功',
                 duration: 2000
               })
             }
-            if (res.code == 601) {
+            if (res.code == 'error_user_exist') {
               this.$notify.error({
                 title: '提示',
                 message: '用户名已存在',

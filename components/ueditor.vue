@@ -26,8 +26,11 @@ export default {
     });
   },
   methods: {
-    getUEContent() {
+    getContent() {
       return this.editor.getContent();
+    },
+    getContentTxt(){
+      return this.editor.getContentTxt();
     }
   },
   destroyed() {

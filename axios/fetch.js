@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Cookie from 'js-cookie';
-import Qs from 'qs';
 
 export function fetch(options) {
     return new Promise((resolve, reject) => {

@@ -26,31 +26,29 @@
   </el-row>
 </template>
 <script>
-import ueditor from "../../components/ueditor.vue";
+import ueditor from '../../components/ueditor.vue'
 export default {
   components: { ueditor },
   data() {
     return {
-      defaultMsg: "",
+      defaultMsg: '',
       config: {
         initialFrameWidth: null,
         initialFrameHeight: 350
       },
-      title: ""
-    };
+      title: ''
+    }
   },
   methods: {
     publishArticle() {
-      this.$put("/publishArticle", {
+      this.$put('/publishArticle', {
         title: this.title,
-        content: this.getUEContent()
-      }).then(res => {
-
-      });
+        content: this.getContentTxt()
+      }).then(res => {})
     },
-    getUEContent() {
-      return this.$refs.ue.getUEContent();
+    getContentTxt() {
+      return this.$refs.ue.getContentTxt()
     }
   }
-};
+}
 </script>

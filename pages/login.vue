@@ -59,10 +59,10 @@ export default {
             username: this.ruleForm.username,
             password: md5(this.ruleForm.password)
           }).then(res => {
-            if (res.code == 200) {
+            if (res.code == 'success') {
               const token = res.data.token
               Cookie.set('TOKEN', token)
-              this.$router.push('/manage')
+              this.$router.push('/manage/add')
               return
             }
             this.$notify.error({

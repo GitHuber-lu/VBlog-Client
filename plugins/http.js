@@ -1,33 +1,39 @@
 import axios from 'axios';
 import Cookie from 'js-cookie';
+import Qs from 'qs'
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = 'http://localhost:1000/api';
+// axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
+// axios.defaults.transformRequest = [function (data) {
+//   // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装了，不需要另外安装）
+//   return JSON.stringify(data);
+// }],
 
 
-// axios.create({
-//   baseURL: 'http://localhost:1000/api',
-//   timeout: 5000
-// });
+  // axios.create({
+  //   baseURL: 'http://localhost:1000/api',
+  //   timeout: 5000
+  // });
 
-//http request 拦截器
-axios.interceptors.request.use(
-  config => {
-    const token = Cookie.get('TOKEN');
-    config.data = JSON.stringify(config.data);
-    config.headers = {
-      'Token': token,
-      'Content-Type': 'application/x-www-form-urlencoded'
+  //http request 拦截器
+  axios.interceptors.request.use(
+    config => {
+      const token = Cookie.get('TOKEN');
+      config.data = Qs.stringify(config.data);
+      config.headers = {
+        'Token': token,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+      // if(token){
+      //   config.params = {'token':token}
+      // }
+      return config;
+    },
+    error => {
+      return Promise.reject(err);
     }
-    // if(token){
-    //   config.params = {'token':token}
-    // }
-    return config;
-  },
-  error => {
-    return Promise.reject(err);
-  }
-);
+  );
 
 
 //http response 拦截器

@@ -5,6 +5,9 @@ export function publish(title, content) {
     return fetch({
         url: '/publishArticle',
         method: 'put',
-        data: { params: [title, content] }
+        params: {
+            title: title,
+            cotent:content
+        }
     })
 }

@@ -1,17 +1,33 @@
 <template>
-  <div class="article">
-    <div class="title"></div>
-    <div class="content"></div>
+<el-container>
+    <el-header>
+      <vblog-menu></vblog-menu>
+    </el-header>
+    <el-main>
+     <div class="article">
+    <div class="title">{{title}}</div>
+    <div class="content" v-html="content"></div>
   </div>
+    </el-main>
+    <el-footer>
+      <vblog-footer></vblog-footer>
+    </el-footer>
+  </el-container>
+  
 </template>
-
 <script>
-// import vblogMenu from "~/components/menu.vue";
-
+import vblogMenu from "~/components/menu.vue";
+import vblogFooter from "~/components/footer.vue";
 export default {
-  components: {},
+  components: {
+    vblogMenu,
+    vblogFooter
+  },
   data() {
-    return {};
+    return {
+      title: "",
+      content: ""
+    };
   },
   methods: {},
   mounted() {
@@ -21,6 +37,14 @@ export default {
         id: aid
       }).then(res => {
         if (res.code == "success") {
+          this.title = res.data.title;
+          this.content = res.data.content;
+        } else {
+          this.$notify.error({
+            title: "提示",
+            message: "获取文章详情失败",
+            duration: 2000
+          });
         }
       });
       return;

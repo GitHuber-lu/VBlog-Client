@@ -1,6 +1,44 @@
-body{
+html,body{
+    height: 100%;
     margin: 0;
+    background-color: #e9eef3;
 }
+.el-container{
+    position:relative;  
+    width:100%;
+    min-height:100%; 
+    box-sizing: border-box;
+    padding-bottom: 80px;
+}
+
+
+.el-header {
+    padding: 0;
+}
+.el-main {
+    background-color: #e9eef3;
+    color: #333;
+}
+.el-footer{
+    width: 100%;
+    height:60px;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+}
+
+
+
+#__nuxt,#__layout{
+    height: 100%;
+}
+
+
+
+
+
+
+
 
 
 
@@ -12,4 +50,14 @@ body{
 }
 .pr-2{
     padding-right: 20px;
+}
+.clearfix {
+    zoom: 1;
+    display: table;
+    width: 100%;
+}
+.el-main .container {
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 0 auto;
 }

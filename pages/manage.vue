@@ -85,6 +85,9 @@ export default {
   padding-left: 20px;
   border-bottom: 1px solid #ccc;
 }
+.el-container {
+  padding-bottom: 0;
+}
 </style>
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="footer clearfix">
       <p>Copyright W3COOL.CN Rights Reserved. 苏ICP备16005416号.</p>
       <p>Powered by VBlog ! v1.0.</p>
     </div>

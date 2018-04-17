@@ -26,29 +26,37 @@
   </el-row>
 </template>
 <script>
-import ueditor from '../../components/ueditor.vue'
+import ueditor from "../../components/ueditor.vue";
 export default {
   components: { ueditor },
   data() {
     return {
-      defaultMsg: '',
+      defaultMsg: "",
       config: {
         initialFrameWidth: null,
         initialFrameHeight: 350
       },
-      title: ''
-    }
+      title: ""
+    };
   },
   methods: {
     publishArticle() {
-      this.$put('/publishArticle', {
+      this.$put("/publishArticle", {
         title: this.title,
-        content: this.getContentTxt()
-      }).then(res => {})
+        content: this.getContent()
+      }).then(res => {
+        if (res.code == "success") {
+          this.$notify.info({
+            title: "提示",
+            message: "发布成功",
+            duration: 2000
+          });
+        }
+      });
     },
-    getContentTxt() {
-      return this.$refs.ue.getContentTxt()
+    getContent() {
+      return this.$refs.ue.getContent();
     }
   }
-}
+};
 </script>

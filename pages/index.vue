@@ -1,21 +1,27 @@
 <template>
   <el-container>
-    <el-header>
-      <vblog-menu></vblog-menu>
-    </el-header>
+    <vblog-header></vblog-header>
     <el-main>
       <div class="container">
         <el-row :gutter="20">
           <el-col :span="16">
             <div class="grid-content">
               <article-list></article-list>
-              <el-pagination class="mt-2" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
-              </el-pagination>
+              <!-- 分页 -->
+              <el-pagination class="mt-2" layout="prev, pager, next" :total="1000"></el-pagination>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="grid-content" style="background-color:#fff;height:500px;border-radius:5px">
-              
+              <div class="p20">
+                <!-- 搜索 -->
+                <el-input placeholder="Search" v-model="input5" class="input-with-select">
+                  <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+                <!-- 留言 -->
+                <el-input class="mt-2" type="textarea" :autosize="{ minRows: 4, maxRows: 8}" placeholder="Everything you want to say to me." v-model="textarea3"></el-input>
+                <el-button class="mt-1 fr" type="danger" icon="el-icon-success" size="small">发送</el-button>
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -28,20 +34,19 @@
 </template>
 
 <script>
-import vblogMenu from '~/components/menu.vue'
+import vblogHeader from '~/components/header.vue'
 import vblogFooter from '~/components/footer.vue'
 import articleList from '~/components/articleList.vue'
 
 export default {
   components: {
-    vblogMenu,
+    vblogHeader,
     vblogFooter,
     articleList
   },
   data() {
     return {}
-  },
-  methods: {}
+  }
 }
 </script>
 

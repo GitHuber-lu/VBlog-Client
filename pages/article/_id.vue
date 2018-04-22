@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <vblog-menu></vblog-menu>
+      <vblog-header></vblog-header>
     </el-header>
     <el-main>
       <div class="container">
@@ -18,11 +18,11 @@
 
 </template>
 <script>
-import vblogMenu from '~/components/menu.vue'
+import vblogHeader from '~/components/header.vue'
 import vblogFooter from '~/components/footer.vue'
 export default {
   components: {
-    vblogMenu,
+    vblogHeader,
     vblogFooter
   },
   data() {
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {},
-  mounted() {
+  created() {
     const aid = this.$route.params.id
     if (aid) {
       this.$fetch('/getArticleDetail', {

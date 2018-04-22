@@ -5,8 +5,8 @@
         <el-input class="mb-2" placeholder="请输入内容" v-model="title">
           <template slot="prepend">标题</template>
         </el-input>
-        <ueditor :defaultMsg="defaultMsg" :config="config" ref="ue" class="mb-2"></ueditor>
-        <el-button type="primary" @click="publishArticle">发布</el-button>
+        <ueditor :config="config" ref="ue" class="mb-2"></ueditor>
+        <el-button type="primary" @click="onUpdate">更新</el-button>
       </div>
     </el-col>
     <el-col :span="8">
@@ -31,30 +31,47 @@ export default {
   components: { ueditor },
   data() {
     return {
-      defaultMsg: '',
+      aid: '',
       config: {
         initialFrameWidth: null,
         initialFrameHeight: 350
       },
-      title: ''
+      title: '',
+      content: ''
     }
   },
   methods: {
-    publishArticle() {
-      this.$put('/publishArticle', {
+    onUpdate() {
+      this.$post('/updateArticleDetail', {
+        id: this.aid,
         title: this.title,
-        content: this.getContent()
+        content: this.$refs.ue.getContent()
       }).then(res => {
-        this.$notify.info({
-          title: '提示',
-          message: '发布成功',
-          duration: 2000
-        })
+        if (res.code == 'success') {
+          this.$notify.info({
+            title: '提示',
+            message: '更新成功',
+            duration: 2000
+          })
+          this.$router.push('/manage/handle')
+        }
       })
     },
-    getContent() {
-      return this.$refs.ue.getContent()
+    getDetail(aid) {
+      this.$fetch('/getArticleDetail', {
+        id: aid
+      }).then(res => {
+        this.title = res.data.title
+        this.content = res.data.content
+      })
     }
+  },
+  mounted() {
+    this.aid = this.$route.query.id
+    this.getDetail(this.aid)
+    setTimeout(() => {
+      this.$refs.ue.setContent(this.content)
+    }, 500)
   }
 }
 </script>

@@ -5,26 +5,8 @@
                 <el-col :span="4">
                     <div class="el-menu-box">
                         <el-menu default-active="1-1" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-                            <el-submenu index="1">
-                                <template slot="title">
-                                    <i class="el-icon-menu"></i>
-                                    <span>博客管理</span>
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="1-1" @click="$router.push('/manage/add')">新增博客</el-menu-item>
-                                    <el-menu-item index="1-2">博客分类</el-menu-item>
-                                    <el-menu-item index="1-3">博客列表</el-menu-item>
-                                </el-menu-item-group>
-                            </el-submenu>
-                            <el-submenu index="2">
-                                <template slot="title">
-                                    <i class="el-icon-menu"></i>
-                                    <span>用户管理</span>
-                                </template>
-                                <el-menu-item-group>
-                                    <el-menu-item index="2-1">用户列表</el-menu-item>
-                                </el-menu-item-group>
-                            </el-submenu>
+                            <el-menu-item index="1-1" @click="$router.push('/manage/add')">新增文章</el-menu-item>
+                            <el-menu-item index="1-2" @click="$router.push('/manage/handle')">文章管理</el-menu-item>
                         </el-menu>
                     </div>
                 </el-col>

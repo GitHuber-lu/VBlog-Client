@@ -31,7 +31,11 @@ export default {
     },
     getContentTxt(){
       return this.editor.getContentTxt();
+    },
+    setContent(html){
+      this.editor.setContent(html);
     }
+
   },
   destroyed() {
     this.editor.destroy();

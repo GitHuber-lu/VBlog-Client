@@ -36,7 +36,7 @@ export default {
       articleList: []
     }
   },
-  mounted() {
+  created() {
     this.$fetch('/getArticleIntroList').then(res => {
       if (res.code == 'success') {
         this.articleList = res.data

@@ -64,7 +64,7 @@ export default {
             if (res.code == 'success') {
               const token = res.data.token
               Cookie.set('TOKEN', token)
-              this.$router.push('/manage/add')
+              this.$router.push('/manage')
               return
             }
             this.$notify.error({

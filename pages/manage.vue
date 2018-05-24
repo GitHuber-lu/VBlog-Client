@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import vblogMenu from '~/components/menu.vue'
+// import vblogMenu from '~/components/menu.vue'
 import vblogFooter from '~/components/footer.vue'
 
 export default {
@@ -38,7 +38,7 @@ export default {
     }
   },
   components: {
-    vblogMenu,
+    // vblogMenu,
     vblogFooter
   },
   methods: {

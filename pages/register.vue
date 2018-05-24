@@ -1,25 +1,17 @@
 <template>
-  <el-container>
-    <el-header>
+  <div class="main">
+    <div class="main-header">
       <vblog-header></vblog-header>
-    </el-header>
-    <el-main>
+    </div>
+    <div class="main-body">
       <div class="container">
-        <el-form :model="ruleForm" ref="ruleForm" :rules="rules">
-          <el-form-item label="用户名" prop="username">
-            <el-input type="text" v-model="ruleForm.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="ruleForm.password"></el-input>
-          </el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
-        </el-form>
+        注册
       </div>
-    </el-main>
-    <el-footer>
+    </div>
+    <div class="main-footer">
       <vblog-footer></vblog-footer>
-    </el-footer>
-  </el-container>
+    </div>
+  </div>
 </template>
 
 <script>

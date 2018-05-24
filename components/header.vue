@@ -1,34 +1,29 @@
 <template>
-  <el-header>
-    <div class="container">
-      <a href="/"><img class="logo" src="/images/logo.png" /></a>
-      <vblog-menu></vblog-menu>
-      <nuxt-link :to="{name:'login'}">登录</nuxt-link>
-    </div>
-  </el-header>
+  <mu-paper>
+    <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
+      <mu-bottom-nav-item value="home" title="Home" icon="home" to="/"/>
+      <mu-bottom-nav-item value="login" title="Login" icon="flight_takeoff" to="/login"/>
+      <mu-bottom-nav-item value="register" title="Register" icon="favorite" to="/register"/>
+      <mu-bottom-nav-item value="pictures" title="Pictures" icon="photo" to="/manage"/>
+    </mu-bottom-nav>
+  </mu-paper>
 </template>
 
 <script>
-import vblogMenu from '~/components/menu.vue'
 export default {
-  components: {
-    vblogMenu
-  },
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
+      bottomNav: 'home',
+      bottomNavColor: 'home'
     }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath)
+    handleChange(val) {
+      this.bottomNav = val
+    },
+    toPage(address) {
+      this.$router.push(address)
     }
   }
 }
 </script>
-<style>
-.logo {
-  height: 50px;
-}
-</style>

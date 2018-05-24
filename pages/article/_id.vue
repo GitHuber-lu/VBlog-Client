@@ -1,20 +1,20 @@
 <template>
-  <el-container>
-    <el-header>
+  <div class="main">
+    <div class="main-header">
       <vblog-header></vblog-header>
-    </el-header>
-    <el-main>
+    </div>
+    <div class="main-body">
       <div class="container">
         <div class="article">
           <div class="title">{{title}}</div>
           <div class="content" v-html="content"></div>
         </div>
       </div>
-    </el-main>
-    <el-footer>
+    </div>
+    <div class="main-footer">
       <vblog-footer></vblog-footer>
-    </el-footer>
-  </el-container>
+    </div>
+  </div>
 
 </template>
 <script>

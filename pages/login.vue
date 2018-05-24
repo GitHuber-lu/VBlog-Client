@@ -1,25 +1,21 @@
 <template>
-  <el-container>
-    <el-header>
+  <div class="main">
+    <div class="main-header">
       <vblog-header></vblog-header>
-    </el-header>
-    <el-main>
+    </div>
+    <div class="main-body">
       <div class="container">
-        <el-form :model="ruleForm" ref="ruleForm" :rules="rules">
-          <el-form-item label="用户名" prop="username">
-            <el-input type="text" v-model="ruleForm.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="ruleForm.password"></el-input>
-          </el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-        </el-form>
+        <mu-paper class="paper" :zDepth="1">
+          <mu-text-field label="用户名" hintText="请输入用户名" type="text" fullWidth required="true" />
+          <mu-text-field label="密码" hintText="请输入密码" type="password" fullWidth required="true" />
+          <mu-raised-button label="登录" fullWidth backgroundColor="#474a4f" />
+        </mu-paper>
       </div>
-    </el-main>
-    <el-footer>
+    </div>
+    <div class="main-footer">
       <vblog-footer></vblog-footer>
-    </el-footer>
-  </el-container>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -79,4 +75,7 @@ export default {
   }
 }
 </script>
+<style>
+</style>
+
 

@@ -1,71 +1,90 @@
-html,body{
+html,
+body {
     height: 100%;
-    
-    /* background-color: #e9eef3; */
 }
-body{
+
+body {
     color: #333;
-    background-image: url("/static/images/bg.png");
+    background-color: #ececec;
+    /* background-image: url("/static/images/bg.png"); */
     background-repeat: repeat;
 }
 
+#__nuxt,
+#__layout {
+    height: 100%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-.mb-2{
+.mb-2 {
     margin-bottom: 20px;
 }
-.mt-2{
+
+.mt-2 {
     margin-top: 20px;
 }
-.mt-1{
+
+.mt-1 {
     margin-top: 10px;
 }
-.p20{
-  padding: 20px;
+
+.p20 {
+    padding: 20px;
 }
-.pr-2{
+
+.pr-2 {
     padding-right: 20px;
 }
+
 .clearfix {
     zoom: 1;
     display: table;
     width: 100%;
 }
 
-li{
+li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: #333;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-.fr{
+
+.fr {
     float: right;
 }
+
 .container {
     min-width: 320px;
     max-width: 1200px;
     margin: 0 auto;
 }
-.el-header .container{
+
+.main {
     display: flex;
-}
-.el-header .container .el-menu{
-    flex-grow: 2;
-    margin: 0 30px;
+    flex-direction: column;
     height: 100%;
+}
+
+.main-header {
+    flex: 0 0 auto;
+}
+
+.main-body {
+    flex: 1 0 auto;
+    padding: 10px 0;
+}
+
+.main-footer {
+    flex: 0 0 auto;
+}
+
+.paper {
+    padding: 20px;
+    margin: 0 10px;
 }

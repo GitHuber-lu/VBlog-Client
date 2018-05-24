@@ -14,6 +14,7 @@ module.exports = {
       { src: '/ueditor/ueditor.all.min.js', type: 'text/javascript', charset: 'utf-8' },
       { src: '/ueditor/lang/zh-cn/zh-cn.js', type: 'text/javascript', charset: 'utf-8' },
       { src: '/ueditor/ueditor.parse.min.js', type: 'text/javascript', charset: 'utf-8' },
+      // { src: 'https://fonts.googleapis.com/icon?family=Material+Icons', type: 'text/javascript', charset: 'utf-8' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -21,13 +22,15 @@ module.exports = {
   },
   plugins: [
     { src: '~plugins/axios', ssr: true },
-    { src: '~plugins/element-ui', ssr: true },
-    { src: '~plugins/http', ssr: true }
+    { src: '~plugins/http', ssr: true },
+    { src: '~plugins/muse-ui', ssr: true },
   ],
   css: [
-    'element-ui/lib/theme-chalk/index.css',
     'assets/css/common.css',
-    'assets/css/element-ui-reset.css'
+    'muse-ui/dist/muse-ui.css',
+    'static/iconfont/material-icons.css',
+    'muse-ui/dist/theme-carbon.css',
+    'assets/css/muse-ui-reset.css'
   ],
   /*
   ** Customize the progress bar color
@@ -50,6 +53,6 @@ module.exports = {
         });
       }
     },
-    vendor: ['element-ui', 'axios']
+    vendor: ['element-ui', 'axios', 'muse-ui']
   }
 }

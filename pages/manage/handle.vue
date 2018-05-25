@@ -1,22 +1,14 @@
 <template>
-
-  <el-row class="p20">
-    <el-col :span="16" class="mb-2 pr-2">
-      <el-table :data="articalData" size="mini" stripe>
-        <el-table-column fixed prop="title" label="标题"></el-table-column>
-        <el-table-column label="操作" width="200">
-          <template slot-scope="scope">
-            <el-button type="text" size="small" @click="onEdit(scope.row.id)">编辑</el-button>
-            <el-button type="text" size="small" @click="onDelete(scope.row.id)">删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-col>
-    <el-col :span="8">
-
-    </el-col>
-  </el-row>
-
+  <div class="">
+    <mu-card v-for="item in articalData" :key="item.id">
+      <mu-card-title :title="item.title" />
+      <mu-icon-menu icon="more_vert" :anchorOrigin="rightTop" :targetOrigin="rightTop">
+        <mu-menu-item title="编辑" @click="onEdit(item.id)"/>
+        <mu-menu-item title="分类" />
+        <mu-menu-item title="删除" @click="onDelete(item.id)"/>
+      </mu-icon-menu>
+    </mu-card>
+  </div>
 </template>
 
 <script>
@@ -60,3 +52,8 @@ export default {
   }
 }
 </script>
+<style>
+.mr-1 {
+  margin-right: 10px;
+}
+</style>

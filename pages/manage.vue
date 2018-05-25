@@ -1,52 +1,41 @@
 <template>
-    <el-container>
-        <el-main>
-            <el-row>
-                <el-col :span="4">
-                    <div class="el-menu-box">
-                        <el-menu default-active="1-1" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-                            <el-menu-item index="1-1" @click="$router.push('/manage/add')">新增文章</el-menu-item>
-                            <el-menu-item index="1-2" @click="$router.push('/manage/handle')">文章管理</el-menu-item>
-                        </el-menu>
-                    </div>
-                </el-col>
-                <el-col :span="20">
-                    <el-breadcrumb class="el-breadcrumb" separator="/">
-                        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                        <el-breadcrumb-item>
-                            <a href="/">活动管理</a>
-                        </el-breadcrumb-item>
-                        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-                        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-                    </el-breadcrumb>
-                    <nuxt-child/>
-                </el-col>
-            </el-row>
-        </el-main>
-    </el-container>
+  <mu-row>
+    <mu-col width="100" tablet="100" desktop="100">
+      <vblog-sidebar :sidebar-open="isOpen" @isopen="openChange"></vblog-sidebar>
+      <mu-appbar title="管理后台">
+        <mu-icon-button icon="menu" slot="left" @click="toggleSidebar(true)" />
+        <mu-flat-button label="佚名" slot="right" />
+        <mu-icon-button icon="expand_more" slot="right" />
+      </mu-appbar>
+      <mu-content-block>
+        <nuxt-child/>
+      </mu-content-block>
+    </mu-col>
+  </mu-row>
 </template>
 
 <script>
-// import vblogMenu from '~/components/menu.vue'
 import vblogFooter from '~/components/footer.vue'
+import vblogSidebar from '~/components/sidebar.vue'
+import vblogBreadcrumb from '~/components/breadcrumb.vue'
 
 export default {
   data() {
     return {
-      username: '',
-      password: ''
+      isOpen: false
     }
   },
   components: {
-    // vblogMenu,
-    vblogFooter
+    vblogSidebar,
+    vblogFooter,
+    vblogBreadcrumb
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath)
+    toggleSidebar(flag) {
+      this.isOpen = flag
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath)
+    openChange(msg) {
+      this.isOpen = msg
     }
   }
 }

@@ -8,15 +8,15 @@
       <div class="down">
         <ul class="info">
           <li>
-            <i class="el-icon-edit"></i>
+            <mu-icon value="account_box" :size="18"/>
             <span class="txt">Bingo</span>
           </li>
           <li>
-            <i class="el-icon-time"></i>
+            <mu-icon value="access_time" :size="18"/>
             <span class="txt">2018.08.08</span>
           </li>
           <li>
-            <i class="el-icon-view"></i>
+            <mu-icon value="remove_red_eye" :size="18"/>
             <span class="txt">120</span>
           </li>
         </ul>

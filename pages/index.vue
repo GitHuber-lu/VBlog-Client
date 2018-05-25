@@ -6,7 +6,6 @@
     <div class="main-body">
       <div class="container">
         <article-list></article-list>
-        <vblog-sidebar></vblog-sidebar>
       </div>
     </div>
     <div class="main-footer">
@@ -19,14 +18,12 @@
 import vblogHeader from '~/components/header.vue'
 import vblogFooter from '~/components/footer.vue'
 import articleList from '~/components/articleList.vue'
-import vblogSidebar from '~/components/sidebar.vue'
 
 export default {
   components: {
     vblogHeader,
     vblogFooter,
-    articleList,
-    vblogSidebar
+    articleList
   },
   data() {
     return {}

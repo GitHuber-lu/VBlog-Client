@@ -1,30 +1,27 @@
 <template>
-<div>
-    <mu-raised-button label="toggle drawer" @click="toggle()"/>
-    <mu-raised-button label="undocked drawer" @click="toggle(true)"/>
-    <mu-drawer :open="open" :docked="docked" @close="toggle()">
-      <mu-list @itemClick="docked ? '' : toggle()">
-        <mu-list-item title="Menu Item 1"/>
-        <mu-list-item title="Menu Item 2"/>
-        <mu-list-item title="Menu Item 3"/>
-        <mu-list-item v-if="docked" @click.native="open = false" title="Close"/>
+  <div>
+    <mu-drawer :open="sidebarOpen" :docked="docked" width="200" right>
+      <mu-list @itemClick="isOpen">
+        <mu-list-item title="前台首页" to="/" />
+        <mu-list-item title="系统信息" to="/manage" />
+        <mu-list-item title="新增文章" to="/manage/add" />
+        <mu-list-item title="文章管理" to="/manage/handle" />
       </mu-list>
     </mu-drawer>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  data () {
+  props: ['sidebarOpen'],
+  data() {
     return {
-      open: false,
-      docked: true
+      docked: false
     }
   },
   methods: {
-    toggle (flag) {
-      this.open = !this.open
-      this.docked = !flag
+    isOpen() {
+      this.$emit('isopen', false)
     }
   }
 }

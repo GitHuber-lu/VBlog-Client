@@ -28,8 +28,6 @@ module.exports = {
         'assets/css/common.css',
         'muse-ui/dist/muse-ui.css',
         'static/iconfont/material-icons.css',
-        // 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic',
-        'muse-ui/dist/theme-carbon.css',
         'assets/css/muse-ui-reset.css'
     ],
     /*
@@ -53,6 +51,6 @@ module.exports = {
                 });
             }
         },
-        vendor: ['element-ui', 'axios', 'muse-ui']
+        vendor: ['axios', 'muse-ui']
     }
 }

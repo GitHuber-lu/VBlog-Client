@@ -1,12 +1,21 @@
 <template>
   <div class="">
     <mu-card v-for="item in articalData" :key="item.id">
-      <mu-card-title :title="item.title" />
-      <mu-icon-menu icon="more_vert" :anchorOrigin="rightTop" :targetOrigin="rightTop">
-        <mu-menu-item title="编辑" @click="onEdit(item.id)"/>
-        <mu-menu-item title="分类" />
-        <mu-menu-item title="删除" @click="onDelete(item.id)"/>
-      </mu-icon-menu>
+      <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
+      <mu-card-actions>
+        <mu-button flat small color="primary" @click="onEdit(item.id)">
+          <mu-icon value="edit"></mu-icon>
+          编辑
+        </mu-button>
+        <mu-button flat small color="success">
+          <mu-icon value="grade"></mu-icon>
+          分类
+        </mu-button>
+        <mu-button flat small color="red" @click="onDelete(item.id)">
+          <mu-icon value="delete"></mu-icon>
+          删除
+        </mu-button>
+      </mu-card-actions>
     </mu-card>
   </div>
 </template>
@@ -52,8 +61,12 @@ export default {
   }
 }
 </script>
-<style>
-.mr-1 {
-  margin-right: 10px;
-}
+<style scoped>
+  .mu-button{
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .mu-button .mu-icon{
+    margin-right: 4px;
+  }
 </style>

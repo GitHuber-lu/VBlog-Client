@@ -5,7 +5,11 @@
     </div>
     <div class="main-body">
       <div class="container">
-        注册
+        <mu-paper class="paper" :zDepth="1">
+          <mu-text-field label="用户名" hintText="请输入用户名" type="text" fullWidth required="true" />
+          <mu-text-field label="密码" hintText="请输入密码" type="password" fullWidth required="true" />
+          <mu-button color="primary" full-width>注册</mu-button>  
+        </mu-paper>
       </div>
     </div>
     <div class="main-footer">

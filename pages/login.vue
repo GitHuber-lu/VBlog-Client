@@ -8,7 +8,7 @@
         <mu-paper class="paper" :zDepth="1">
           <mu-text-field label="用户名" hintText="请输入用户名" type="text" fullWidth required="true" />
           <mu-text-field label="密码" hintText="请输入密码" type="password" fullWidth required="true" />
-          <mu-raised-button label="登录" fullWidth backgroundColor="#474a4f" />
+          <mu-button color="primary" full-width>登录</mu-button>  
         </mu-paper>
       </div>
     </div>

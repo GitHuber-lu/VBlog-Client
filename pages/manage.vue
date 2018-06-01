@@ -1,23 +1,20 @@
 <template>
-  <mu-row>
-    <mu-col width="100" tablet="100" desktop="100">
-      <vblog-sidebar :sidebar-open="isOpen" @isopen="openChange"></vblog-sidebar>
-      <mu-appbar color="primary">
-        <mu-button icon slot="left" @click="toggleSidebar(true)">
-          <mu-icon value="menu"></mu-icon>
-        </mu-button>
-        管理后台
-        <mu-text slot="right">佚名</mu-text>
-        <mu-button icon slot="right">
-          <mu-icon value="expand_more"></mu-icon>
-        </mu-button>
-        
-      </mu-appbar>
-      <mu-content-block>
-        <nuxt-child/>
-      </mu-content-block>
-    </mu-col>
-  </mu-row>
+  <div>
+    <vblog-sidebar :sidebar-open="isOpen" @isopen="openChange"></vblog-sidebar>
+    <mu-appbar color="primary">
+      <mu-button icon slot="left" @click="toggleSidebar(true)">
+        <mu-icon value="menu"></mu-icon>
+      </mu-button>
+      管理后台
+      <mu-text slot="right">佚名</mu-text>
+      <mu-button icon slot="right">
+        <mu-icon value="expand_more"></mu-icon>
+      </mu-button>
+    </mu-appbar>
+    <mu-content-block>
+      <nuxt-child/>
+    </mu-content-block>
+  </div>
 </template>
 
 <script>

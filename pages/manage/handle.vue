@@ -62,11 +62,11 @@ export default {
 }
 </script>
 <style scoped>
-  .mu-button{
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  .mu-button .mu-icon{
-    margin-right: 4px;
-  }
+.mu-button {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.mu-button .mu-icon {
+  margin-right: 4px;
+}
 </style>

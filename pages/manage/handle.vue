@@ -1,22 +1,33 @@
 <template>
-  <div class="">
-    <mu-card v-for="item in articalData" :key="item.id">
-      <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
-      <mu-card-actions>
-        <mu-button flat small color="primary" @click="onEdit(item.id)">
-          <mu-icon value="edit"></mu-icon>
-          编辑
-        </mu-button>
-        <mu-button flat small color="success">
-          <mu-icon value="grade"></mu-icon>
-          分类
-        </mu-button>
-        <mu-button flat small color="red" @click="onDelete(item.id)">
-          <mu-icon value="delete"></mu-icon>
-          删除
-        </mu-button>
-      </mu-card-actions>
-    </mu-card>
+  <div>
+    <mu-paper :z-depth="2">
+      <mu-list v-for="item in articalData" :key="item.id">
+        <mu-list-item>
+          <mu-list-item-content>
+            <mu-list-item-title>{{item.title}}</mu-list-item-title>
+          </mu-list-item-content>
+          <mu-list-item-action>
+            <mu-menu cover placement="bottom-end">
+              <mu-button icon>
+                <mu-icon value="more_vert"></mu-icon>
+              </mu-button>
+              <mu-list slot="content">
+                <mu-list-item button @click="onEdit(item.id)">
+                  <mu-list-item-title>编辑</mu-list-item-title>
+                </mu-list-item>
+                <mu-list-item button>
+                  <mu-list-item-title>分类</mu-list-item-title>
+                </mu-list-item>
+                <mu-list-item button>
+                  <mu-list-item-title  @click="onDelete(item.id)">删除</mu-list-item-title>
+                </mu-list-item>
+              </mu-list>
+            </mu-menu>
+          </mu-list-item-action>
+        </mu-list-item>
+        <mu-divider shallow-inset></mu-divider>
+      </mu-list>
+    </mu-paper>
   </div>
 </template>
 

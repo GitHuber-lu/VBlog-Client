@@ -1,7 +1,7 @@
 <template>
   <div>
-    <mu-drawer :open="sidebarOpen" :docked="docked" width="200" right>
-      <mu-list @itemClick="isOpen">
+    <mu-drawer :open.sync="isOpen" :docked="docked" width="200" right>
+      <mu-list>
         <mu-list-item button to="/">
           <mu-list-item-title>前台首页</mu-list-item-title>
         </mu-list-item>
@@ -14,6 +14,9 @@
         <mu-list-item button to="/manage/handle">
           <mu-list-item-title>文章管理</mu-list-item-title>
         </mu-list-item>
+        <mu-list-item button @click="close">
+          <mu-list-item-title>关闭</mu-list-item-title>
+        </mu-list-item>
       </mu-list>
     </mu-drawer>
   </div>
@@ -21,15 +24,15 @@
 
 <script>
 export default {
-  props: ['sidebarOpen'],
+  props: ['isOpen'],
   data() {
     return {
-      docked: false
+      docked: true
     }
   },
   methods: {
-    isOpen() {
-      this.$emit('isopen', false)
+    close(){
+      this.$emit('update:isOpen', false)
     }
   }
 }

@@ -26,6 +26,9 @@ body {
 .mt-1 {
     margin-top: 10px;
 }
+.my-2{
+    margin: 20px 0;
+}
 
 .p20 {
     padding: 20px;

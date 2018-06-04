@@ -6,9 +6,9 @@
     <div class="main-body">
       <div class="container">
         <mu-paper class="paper" :zDepth="1">
-          <mu-text-field label="用户名" hintText="请输入用户名" type="text" fullWidth required="true" />
-          <mu-text-field label="密码" hintText="请输入密码" type="password" fullWidth required="true" />
-          <mu-button color="primary" full-width>登录</mu-button>  
+          <mu-text-field label="用户名" type="text" label-float help-text="" icon="account_circle" full-width required="true"></mu-text-field><br/>
+          <mu-text-field label="密码" type="password" label-float help-text="" icon="locked" full-width required="true"></mu-text-field><br/>
+          <mu-button color="primary" full-width>登录</mu-button>
         </mu-paper>
       </div>
     </div>

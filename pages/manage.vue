@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vblog-sidebar :sidebar-open="isOpen" @isopen="openChange"></vblog-sidebar>
+    <vblog-sidebar :is-open.sync="open"></vblog-sidebar>
     <mu-appbar color="primary">
-      <mu-button icon slot="left" @click="toggleSidebar(true)">
+      <mu-button icon slot="left" @click="open = !open">
         <mu-icon value="menu"></mu-icon>
       </mu-button>
       管理后台
@@ -25,7 +25,7 @@ import vblogBreadcrumb from '~/components/breadcrumb.vue'
 export default {
   data() {
     return {
-      isOpen: false
+      open: false
     }
   },
   components: {
@@ -34,12 +34,7 @@ export default {
     vblogBreadcrumb
   },
   methods: {
-    toggleSidebar(flag) {
-      this.isOpen = flag
-    },
-    openChange(msg) {
-      this.isOpen = msg
-    }
+
   }
 }
 </script>

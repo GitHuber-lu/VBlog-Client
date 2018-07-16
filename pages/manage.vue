@@ -6,14 +6,14 @@
         <mu-icon value="menu"></mu-icon>
       </mu-button>
       管理后台
-      <mu-text slot="right">佚名</mu-text>
+      <span slot="right">佚名</span>
       <mu-button icon slot="right">
         <mu-icon value="expand_more"></mu-icon>
       </mu-button>
     </mu-appbar>
-    <mu-content-block>
+    <!-- <mu-content-block> -->
       <nuxt-child/>
-    </mu-content-block>
+    <!-- </mu-content-block> -->
   </div>
 </template>
 

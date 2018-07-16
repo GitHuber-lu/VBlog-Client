@@ -20,9 +20,10 @@ module.exports = {
         ]
     },
     plugins: [
-        { src: '~plugins/axios', ssr: true },
-        { src: '~plugins/http', ssr: true },
+        // { src: '~plugins/axios', ssr: true },
+        // { src: '~plugins/http', ssr: true },
         { src: '~plugins/muse-ui', ssr: true },
+        // { src: '~plugins/request', ssr: true },
     ],
     css: [
         'assets/css/common.css',

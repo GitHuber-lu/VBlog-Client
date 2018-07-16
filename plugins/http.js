@@ -3,7 +3,7 @@ import Cookie from 'js-cookie';
 import Qs from 'qs'
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://localhost:1000/api';
+axios.defaults.baseURL = 'http://localhost:9527/api';
 // axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
 // axios.defaults.transformRequest = [function (data) {
 //   // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装了，不需要另外安装）

@@ -18,8 +18,8 @@
                 <mu-list-item button>
                   <mu-list-item-title>分类</mu-list-item-title>
                 </mu-list-item>
-                <mu-list-item button>
-                  <mu-list-item-title  @click="onDelete(item.id)">删除</mu-list-item-title>
+                <mu-list-item button @click="onDelete(item.id)">
+                  <mu-list-item-title>删除</mu-list-item-title>
                 </mu-list-item>
               </mu-list>
             </mu-menu>
@@ -39,6 +39,9 @@ export default {
     }
   },
   methods: {
+    openSimpleDialog(){
+      this.openSimple = true;
+    },
     onEdit(aid) {
       this.$router.push({
         path: '/manage/edit',
@@ -52,11 +55,7 @@ export default {
         id: aid
       }).then(res => {
         if (res.code == 'success') {
-          this.$notify.info({
-            title: '提示',
-            message: '删除成功',
-            duration: 2000
-          })
+          alert('删除成功')
           this.getArticleList()
         }
       })

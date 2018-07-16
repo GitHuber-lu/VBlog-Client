@@ -23,7 +23,7 @@
     window.UEDITOR_HOME_URL = '/ueditor/'
     
     var URL = window.UEDITOR_HOME_URL || getUEBasePath();
-    var serverUrl = 'http://localhost:1000/api/ue';
+    var serverUrl = 'http://localhost:9527/api/ue';
 
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。

@@ -1,4 +1,4 @@
-import { login, logout, getInfo } from '@/api/login'
+import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import md5 from "md5";
 
@@ -31,7 +31,6 @@ export const actions = {
     const username = userInfo.username.trim()
     return new Promise((resolve, reject) => {
       login(username, md5(userInfo.password)).then(res => {
-        debugger
         const token = res.data.token
         setToken(token)
         // mutations.SET_TOKEN(state, token)

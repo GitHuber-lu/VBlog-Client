@@ -37,11 +37,11 @@ export default {
     }
   },
   created() {
-    this.$fetch('/getArticleIntroList').then(res => {
-      if (res.code == 'success') {
-        this.articleList = res.data
-      }
-    })
+    // this.$fetch('/getArticleIntroList').then(res => {
+    //   if (res.code == 'success') {
+    //     this.articleList = res.data
+    //   }
+    // })
   }
 }
 </script>

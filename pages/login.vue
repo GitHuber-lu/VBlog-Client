@@ -31,7 +31,7 @@ import vblogHeader from "~/components/header.vue";
 import vblogFooter from "~/components/footer.vue";
 // import Cookie from "js-cookie";
 // import md5 from "md5";
-import { login } from "~/api/login";
+import { login } from "~/api/user";
 
 export default {
   components: {

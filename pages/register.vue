@@ -29,6 +29,7 @@
 <script>
 import vblogHeader from "~/components/header.vue";
 import vblogFooter from "~/components/footer.vue";
+import { register } from "~/api/user"
 import md5 from "md5";
 
 export default {
@@ -59,17 +60,12 @@ export default {
     submitForm() {
       this.$refs.form.validate().then(valid => {
         if (valid) {
-          this.$put("/register", {
-            username: this.validateForm.username,
-            password: md5(this.validateForm.password)
-          }).then(res => {
-            if (res.code == "success") {
-              alert('保存成功')
-            }
-            if (res.code == "error_user_exist") {
-              alert('用户名已存在')
-            }
-          });
+          register(
+            this.validateForm.username,
+            md5(this.validateForm.password)
+          ).then(res=>{
+            alert('注册成功')
+          })
         }
       });
     }

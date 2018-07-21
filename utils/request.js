@@ -33,7 +33,7 @@ service.interceptors.response.use(
   * code为非20000是抛错 可结合自己业务进行修改
   */
     const res = response.data
-    if (res.code !== 'success') {
+    if (res.code === 'error') {
       // Message({
       //   message: res.message,
       //   type: 'error',
@@ -53,7 +53,7 @@ service.interceptors.response.use(
       //     })
       //   })
       // }
-      // return Promise.reject('error')
+      return Promise.reject('error')
     } else {
       return response.data
     }

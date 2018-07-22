@@ -29,8 +29,6 @@
 <script>
 import vblogHeader from "~/components/header.vue";
 import vblogFooter from "~/components/footer.vue";
-// import Cookie from "js-cookie";
-// import md5 from "md5";
 import { login } from "~/api/user";
 
 export default {
@@ -53,9 +51,7 @@ export default {
       this.$refs.form.validate().then(valid => {
         if (valid) {
           this.$store.dispatch("user/Login", this.validateForm).then(res => {
-            this.$store.commit("user/SET_TOKEN", res.data.token);
             this.$router.push("/manage");
-            alert("登录成功");
           });
         }
       });

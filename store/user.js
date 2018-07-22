@@ -31,9 +31,10 @@ export const actions = {
     const username = userInfo.username.trim()
     return new Promise((resolve, reject) => {
       login(username, md5(userInfo.password)).then(res => {
-        const token = res.data.token
-        setToken(token)
-        // mutations.SET_TOKEN(state, token)
+        const data = res.data
+        setToken(data.token)
+        commit('SET_TOKEN', data.token)
+        commit('SET_NAME', data.name)
         resolve(res)
       }).catch(error => {
         reject(error)

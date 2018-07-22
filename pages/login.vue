@@ -53,28 +53,10 @@ export default {
       this.$refs.form.validate().then(valid => {
         if (valid) {
           this.$store.dispatch("user/Login", this.validateForm).then(res => {
-            if (res.code == "success") {
-              this.$store.commit('user/SET_TOKEN', res.data.token)
-              this.$router.push("/manage");
-              alert("登录成功");
-              return;
-            }
-            alert("登录失败");
+            this.$store.commit("user/SET_TOKEN", res.data.token);
+            this.$router.push("/manage");
+            alert("登录成功");
           });
-          // this.$fetch("/login", {
-          //   username: this.validateForm.username,
-          //   password: md5(this.validateForm.password)
-          // }).then(res => {
-          //   if (res.code == "success") {
-          //     const token = res.data.token;
-          //     setToken(token);
-          //     // Cookie.set("TOKEN", token);
-          //     this.$router.push("/manage");
-          //     alert("登录成功");
-          //     return;
-          //   }
-          //   alert("登录失败");
-          // });
         }
       });
     }

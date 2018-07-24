@@ -32,6 +32,7 @@ import vblogFooter from "~/components/footer.vue";
 import { login } from "~/api/user";
 
 export default {
+  middleware:'user',
   components: {
     vblogHeader,
     vblogFooter
@@ -50,7 +51,7 @@ export default {
     submitForm() {
       this.$refs.form.validate().then(valid => {
         if (valid) {
-          this.$store.dispatch("user/Login", this.validateForm).then(res => {
+          this.$store.dispatch('Login', this.validateForm).then(res => {
             this.$router.push("/manage");
           });
         }

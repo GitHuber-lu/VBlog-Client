@@ -24,9 +24,10 @@ export function register(username, password) {
 
 export function getInfo(token) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/user/getUserByToken',
+    method: 'post',
+    params: {},
+    data:{token}
   })
 }
 

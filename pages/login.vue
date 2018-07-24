@@ -32,7 +32,6 @@ import vblogFooter from "~/components/footer.vue";
 import { login } from "~/api/user";
 
 export default {
-  middleware:'user',
   components: {
     vblogHeader,
     vblogFooter

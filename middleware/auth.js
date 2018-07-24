@@ -1,5 +1,12 @@
+
 export default function ({ store, redirect }) {
-    if (!store.state.token) {
+    const token = store.state.token;
+    console.log('!!!',store)
+    if (!token) {
         return redirect('/login')
+    }else{
+        store.dispatch("GetInfo", token).then(res => {
+            console.log(res)
+        });
     }
 }

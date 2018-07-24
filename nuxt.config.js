@@ -31,9 +31,7 @@ module.exports = {
         'static/iconfont/material-icons.css',
         'assets/css/muse-ui-reset.css'
     ],
-    // router: {
-    //     middleware: 'user'
-    // },
+    // middleware: 'auth',
     /*
      ** Customize the progress bar color
      */

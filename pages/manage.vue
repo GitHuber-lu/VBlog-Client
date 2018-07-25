@@ -23,6 +23,7 @@ import vblogSidebar from '~/components/sidebar.vue'
 import vblogBreadcrumb from '~/components/breadcrumb.vue'
 
 export default {
+  // middleware: 'auth',
   data() {
     return {
       open: false

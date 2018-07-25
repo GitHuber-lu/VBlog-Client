@@ -1,12 +1,12 @@
-
-export default function ({ store, redirect }) {
+// import { getToken } from '@/utils/auth'
+export default function ({ store, redirect, route }) {
     const token = store.state.token;
-    console.log('!!!',store)
+    console.log('~~~~~~', route)
     if (!token) {
         return redirect('/login')
-    }else{
-        store.dispatch("GetInfo", token).then(res => {
-            console.log(res)
-        });
+    } else {
+        // store.dispatch("GetInfo", getToken()).then(res => {
+        //     console.log(res)
+        // });
     }
 }
